@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
 	<title>To-Do list</title>
 </head>
 <body>
@@ -10,10 +11,11 @@
 		<h2>My to-do list</h2>
 		<div class="input">
 			<input 
-			type="text"
-			class="field"
-			id="task"
-			placeholder="New Task">
+				type="text"
+				class="field"
+				id="task"
+				placeholder="New Task"/>
+			<button class="clickBox">Add</button>
 		</div>
 		<ul class="scroll">
 			<li id="taskList"></li>
@@ -25,7 +27,6 @@
 				<button id="deleteButton">Erase list</button>
 			</div>
 		</div>
-		<button class="clickBox">Add</button>
 	</section>
 	<footer>
 		<div class="footer">
