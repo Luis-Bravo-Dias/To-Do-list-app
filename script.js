@@ -40,7 +40,9 @@ function	addTask() {
 }
 
 function eraseList() {
-	console.log("test");
+	tasks = [];
+	saveToLocalStorage();
+	displayTasks();
 }
 
 function	displayTasks() {
@@ -63,6 +65,12 @@ function	displayTasks() {
 			});
 		taskList.appendChild(p);
 	})
+}
+
+function toggleTask(index) {
+	tasks[index].disabled = !tasks[index].disabled;
+	saveToLocalStorage();
+	displayTasks();
 }
 
 function	saveToLocalStorage() {

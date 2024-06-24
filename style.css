@@ -113,11 +113,11 @@ li {
 	align-items: center;
 }
 
-#taskList .disable{
+#taskList .disabled{
 	color: var(--grey);
 }
 
-.disable /*when a task is done*/{
+.disabled /*when a task is done*/{
 	display: flex;
 	text-decoration: line-through;
 }
