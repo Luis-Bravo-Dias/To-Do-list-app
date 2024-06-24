@@ -6,7 +6,7 @@ const	taskInput = document.getElementById("taskInput")
 
 const	taskList = document.getElementById("taskList")
 
-const	count = document.getElementById("counter")
+const	count = document.getElementById("taskCounter")
 
 const	addButton = document.querySelector(".clickBox")
 
@@ -65,6 +65,7 @@ function	displayTasks() {
 			});
 		taskList.appendChild(p);
 	})
+	count.textContent = tasks.length;
 }
 
 function toggleTask(index) {
@@ -75,4 +76,23 @@ function toggleTask(index) {
 
 function	saveToLocalStorage() {
 	localStorage.setItem("task", JSON.stringify(tasks));
+}
+
+function	editTask(index) {
+	const	taskItem = document.getElementById(`task-${index}`);
+	const	currentText = tasks[index].text;
+	const	newInput = document.createElement("input");
+
+	newInput.value = currentText;
+	taskItem.replaceWith(newInput);
+	newInput.focus();
+
+	newInput.addEventListener("blur", function () {
+		const	updatedText = newInput.value.trim();
+		if (updatedText) {
+			tasks[index].text = updatedText;
+			saveToLocalStorage();
+		}
+		displayTasks();
+	})
 }
