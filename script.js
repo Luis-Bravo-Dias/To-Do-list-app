@@ -44,7 +44,25 @@ function eraseList() {
 }
 
 function	displayTasks() {
-	
+	taskList.innerHTML = "";
+	tasks.forEach((item, index) => {
+		const p = document.createElement("P");
+		p.innerHTML = `
+			<div class="taskContainer">
+				<input type="checkBox" class="taskCheckBox
+				id="input-${index}" ${item.disabled ? "checked" : ""}>
+			<p id="task-${index}"
+					class="${item.disabled ? "disabled" : ""}"
+					onclick="editTask(${index})">${item.text}
+			</p>
+			</div>
+		`
+		p.querySelector(".taskCheckBox").addEventListener(
+			"change", () => {
+				toggleTask(index);
+			});
+		taskList.appendChild(p);
+	})
 }
 
 function	saveToLocalStorage() {

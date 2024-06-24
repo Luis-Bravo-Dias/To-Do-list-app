@@ -107,12 +107,26 @@ li {
 }
 
 #taskList p /*target all paragraphs in the list*/{
+	display: flex;
+	gap: 1rem;
 	color: var(--dark-brown);
+	align-items: center;
+}
+
+#taskList .disable{
+	color: var(--grey);
 }
 
 .disable /*when a task is done*/{
 	display: flex;
 	text-decoration: line-through;
+}
+
+input[type="checkBox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	cursor: pointer;
 }
 
 input[type="checkBox"]::before {
@@ -127,7 +141,7 @@ input[type="checkBox"]::before {
 	color: transparent;
 }
 
-input[type="checkBox"]::before::after {
+input[type="checkBox"]:checked::before {
 	color: var(--white);
 	background-color: var(--green);
 	border: 0.06rem solid var(--green);
