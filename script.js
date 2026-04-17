@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded",
 			}
 		});
 		deleteButton.addEventListener("click", eraseList);
+		
 		displayTasks();
 })
 
